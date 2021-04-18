@@ -1,5 +1,5 @@
-Definir valores de caracteristicas dos personagens   exemplo
-Definir valores de caracteristicas dos inimigos      completo
+Definir valores de caracteristicas dos personagens
+Definir valores de caracteristicas dos inimigos      
 Definir ataques/magias 
 Definir calculos de danos
 Classe Batalha
@@ -8,3 +8,4 @@ Pre-batalha
 Classe pra iniciar
 Informação durante batalha
 Classe equipe (Cicero)
+Classes de Inimigos
