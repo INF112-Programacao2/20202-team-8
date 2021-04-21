@@ -65,94 +65,67 @@ int main(int argc, char *argv[]) {
     std::cout << "constituicao na batalha: " << p1.get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << p1.get_inteligencia_batalha() << std::endl;
     std::cout << "velocidade na batalha: " << p1.get_velocidade_batalha() << std::endl << "Destreza na batalha: " << p1.get_destreza_batalha() << std::endl << std::endl;
 
-    std::cout << std::endl << "CLASSES HERDADAS:" << std::endl << std::endl;
+    std::cout << std::endl << "Testando 1 equipe1:" << std::endl << std::endl;
 
-    std::vector <Personagem*> lista_personagens;
+    Equipe equipe1(1,2,3,4);
 
-    Personagem *p2 = new Arqueiro;
-    Personagem *p3 = new Barbaro;
-    Personagem *p4 = new Bardo;
-    Personagem *p5 = new Guerreiro;
-    Personagem *p6 = new Ladino;
-    Personagem *p7 = new Mago;
-    Personagem *p8 = new Paladino;
-    Personagem *p9 = new Sacerdote;
-
-    lista_personagens.push_back(p2);
-    lista_personagens.push_back(p3);
-    lista_personagens.push_back(p4);
-    lista_personagens.push_back(p5);
-    lista_personagens.push_back(p6);
-    lista_personagens.push_back(p7);
-    lista_personagens.push_back(p8);
-    lista_personagens.push_back(p9);
-
-    for(int i=0;i<lista_personagens.size();i++){
-        std::cout << "level: " << lista_personagens[i]->get_level() << std::endl << "forca base: " << lista_personagens[i]->get_forca_base() << std::endl;
-        std::cout << "constituicao base: " << lista_personagens[i]->get_constituicao_base() << std::endl << "inteligencia base: " << lista_personagens[i]->get_inteligencia_base() << std::endl;
-        std::cout << "velocidade base: " << lista_personagens[i]->get_velocidade_base() << std::endl;
-        std::cout << "Destreza base: " << lista_personagens[i]->get_destreza_base() << std::endl << "forca na batalha: " << lista_personagens[i]->get_forca_batalha() << std::endl;
-        std::cout << "constituicao na batalha: " << lista_personagens[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << lista_personagens[i]->get_inteligencia_batalha() << std::endl;
-        std::cout << "velocidade na batalha: " << lista_personagens[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << lista_personagens[i]->get_destreza_batalha() << std::endl << std::endl;
+    for(int i=0;i<equipe1._equipe.size();i++){
+        std::cout << "level: " << equipe1._equipe[i]->get_level() << std::endl << "forca base: " << equipe1._equipe[i]->get_forca_base() << std::endl;
+        std::cout << "constituicao base: " << equipe1._equipe[i]->get_constituicao_base() << std::endl << "inteligencia base: " << equipe1._equipe[i]->get_inteligencia_base() << std::endl;
+        std::cout << "velocidade base: " << equipe1._equipe[i]->get_velocidade_base() << std::endl;
+        std::cout << "Destreza base: " << equipe1._equipe[i]->get_destreza_base() << std::endl << "forca na batalha: " << equipe1._equipe[i]->get_forca_batalha() << std::endl;
+        std::cout << "constituicao na batalha: " << equipe1._equipe[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << equipe1._equipe[i]->get_inteligencia_batalha() << std::endl;
+        std::cout << "velocidade na batalha: " << equipe1._equipe[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << equipe1._equipe[i]->get_destreza_batalha() << std::endl << std::endl;
     }
 
-    for(int i=0; i<lista_personagens.size();i++){
-        lista_personagens[i]->level_up();
-        lista_personagens[i]->add_pontos_extra(10.0,10.0,10.0,10.0,10.0);
+    for(int i=0; i<equipe1._equipe.size();i++){
+        equipe1._equipe[i]->level_up();
+        equipe1._equipe[i]->add_pontos_extra(10.0,10.0,10.0,10.0,10.0);
     }
 
-    for(int i=0;i<lista_personagens.size();i++){
-        std::cout << "level: " << lista_personagens[i]->get_level() << std::endl << "forca base: " << lista_personagens[i]->get_forca_base() << std::endl;
-        std::cout << "constituicao base: " << lista_personagens[i]->get_constituicao_base() << std::endl << "inteligencia base: " << lista_personagens[i]->get_inteligencia_base() << std::endl;
-        std::cout << "velocidade base: " << lista_personagens[i]->get_velocidade_base() << std::endl;
-        std::cout << "Destreza base: " << lista_personagens[i]->get_destreza_base() << std::endl << "forca na batalha: " << lista_personagens[i]->get_forca_batalha() << std::endl;
-        std::cout << "constituicao na batalha: " << lista_personagens[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << lista_personagens[i]->get_inteligencia_batalha() << std::endl;
-        std::cout << "velocidade na batalha: " << lista_personagens[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << lista_personagens[i]->get_destreza_batalha() << std::endl << std::endl;
+    for(int i=0;i<equipe1._equipe.size();i++){
+        std::cout << "level: " << equipe1._equipe[i]->get_level() << std::endl << "forca base: " << equipe1._equipe[i]->get_forca_base() << std::endl;
+        std::cout << "constituicao base: " << equipe1._equipe[i]->get_constituicao_base() << std::endl << "inteligencia base: " << equipe1._equipe[i]->get_inteligencia_base() << std::endl;
+        std::cout << "velocidade base: " << equipe1._equipe[i]->get_velocidade_base() << std::endl;
+        std::cout << "Destreza base: " << equipe1._equipe[i]->get_destreza_base() << std::endl << "forca na batalha: " << equipe1._equipe[i]->get_forca_batalha() << std::endl;
+        std::cout << "constituicao na batalha: " << equipe1._equipe[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << equipe1._equipe[i]->get_inteligencia_batalha() << std::endl;
+        std::cout << "velocidade na batalha: " << equipe1._equipe[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << equipe1._equipe[i]->get_destreza_batalha() << std::endl << std::endl;
     }
 
-    for(int i=0;i<lista_personagens.size();i++){
-        lista_personagens[i]->set_level(100);
-        lista_personagens[i]->set_forca_base(100.0);
-        lista_personagens[i]->set_constituicao_base(100.0);
-        lista_personagens[i]->set_inteligencia_base(100.0);
-        lista_personagens[i]->set_velocidade_base(100.0);
-        lista_personagens[i]->set_destreza_base(100.0);
+    for(int i=0;i<equipe1._equipe.size();i++){
+        equipe1._equipe[i]->set_level(100);
+        equipe1._equipe[i]->set_forca_base(100.0);
+        equipe1._equipe[i]->set_constituicao_base(100.0);
+        equipe1._equipe[i]->set_inteligencia_base(100.0);
+        equipe1._equipe[i]->set_velocidade_base(100.0);
+        equipe1._equipe[i]->set_destreza_base(100.0);
     }
 
-    for(int i=0;i<lista_personagens.size();i++){
-        std::cout << "level: " << lista_personagens[i]->get_level() << std::endl << "forca base: " << lista_personagens[i]->get_forca_base() << std::endl;
-        std::cout << "constituicao base: " << lista_personagens[i]->get_constituicao_base() << std::endl << "inteligencia base: " << lista_personagens[i]->get_inteligencia_base() << std::endl;
-        std::cout << "velocidade base: " << lista_personagens[i]->get_velocidade_base() << std::endl;
-        std::cout << "Destreza base: " << lista_personagens[i]->get_destreza_base() << std::endl << "forca na batalha: " << lista_personagens[i]->get_forca_batalha() << std::endl;
-        std::cout << "constituicao na batalha: " << lista_personagens[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << lista_personagens[i]->get_inteligencia_batalha() << std::endl;
-        std::cout << "velocidade na batalha: " << lista_personagens[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << lista_personagens[i]->get_destreza_batalha() << std::endl << std::endl;
+    for(int i=0;i<equipe1._equipe.size();i++){
+        std::cout << "level: " << equipe1._equipe[i]->get_level() << std::endl << "forca base: " << equipe1._equipe[i]->get_forca_base() << std::endl;
+        std::cout << "constituicao base: " << equipe1._equipe[i]->get_constituicao_base() << std::endl << "inteligencia base: " << equipe1._equipe[i]->get_inteligencia_base() << std::endl;
+        std::cout << "velocidade base: " << equipe1._equipe[i]->get_velocidade_base() << std::endl;
+        std::cout << "Destreza base: " << equipe1._equipe[i]->get_destreza_base() << std::endl << "forca na batalha: " << equipe1._equipe[i]->get_forca_batalha() << std::endl;
+        std::cout << "constituicao na batalha: " << equipe1._equipe[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << equipe1._equipe[i]->get_inteligencia_batalha() << std::endl;
+        std::cout << "velocidade na batalha: " << equipe1._equipe[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << equipe1._equipe[i]->get_destreza_batalha() << std::endl << std::endl;
     }
 
-    for(int i=0;i<lista_personagens.size();i++){
-        lista_personagens[i]->set_forca_batalha(150.0);
-        lista_personagens[i]->set_constituicao_batalha(150.0);
-        lista_personagens[i]->set_inteligencia_batalha(150.0);
-        lista_personagens[i]->set_velocidade_batalha(150.0);
-        lista_personagens[i]->set_destreza_batalha(150.0);
+    for(int i=0;i<equipe1._equipe.size();i++){
+        equipe1._equipe[i]->set_forca_batalha(150.0);
+        equipe1._equipe[i]->set_constituicao_batalha(150.0);
+        equipe1._equipe[i]->set_inteligencia_batalha(150.0);
+        equipe1._equipe[i]->set_velocidade_batalha(150.0);
+        equipe1._equipe[i]->set_destreza_batalha(150.0);
     }
 
-    for(int i=0;i<lista_personagens.size();i++){
-        std::cout << "level: " << lista_personagens[i]->get_level() << std::endl << "forca base: " << lista_personagens[i]->get_forca_base() << std::endl;
-        std::cout << "constituicao base: " << lista_personagens[i]->get_constituicao_base() << std::endl << "inteligencia base: " << lista_personagens[i]->get_inteligencia_base() << std::endl;
-        std::cout << "velocidade base: " << lista_personagens[i]->get_velocidade_base() << std::endl;
-        std::cout << "Destreza base: " << lista_personagens[i]->get_destreza_base() << std::endl << "forca na batalha: " << lista_personagens[i]->get_forca_batalha() << std::endl;
-        std::cout << "constituicao na batalha: " << lista_personagens[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << lista_personagens[i]->get_inteligencia_batalha() << std::endl;
-        std::cout << "velocidade na batalha: " << lista_personagens[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << lista_personagens[i]->get_destreza_batalha() << std::endl << std::endl;
+    for(int i=0;i<equipe1._equipe.size();i++){
+        std::cout << "level: " << equipe1._equipe[i]->get_level() << std::endl << "forca base: " << equipe1._equipe[i]->get_forca_base() << std::endl;
+        std::cout << "constituicao base: " << equipe1._equipe[i]->get_constituicao_base() << std::endl << "inteligencia base: " << equipe1._equipe[i]->get_inteligencia_base() << std::endl;
+        std::cout << "velocidade base: " << equipe1._equipe[i]->get_velocidade_base() << std::endl;
+        std::cout << "Destreza base: " << equipe1._equipe[i]->get_destreza_base() << std::endl << "forca na batalha: " << equipe1._equipe[i]->get_forca_batalha() << std::endl;
+        std::cout << "constituicao na batalha: " << equipe1._equipe[i]->get_constituicao_batalha() << std::endl << "inteligencia na batalha: " << equipe1._equipe[i]->get_inteligencia_batalha() << std::endl;
+        std::cout << "velocidade na batalha: " << equipe1._equipe[i]->get_velocidade_batalha() << std::endl << "Destreza na batalha: " << equipe1._equipe[i]->get_destreza_batalha() << std::endl << std::endl;
     }
-
-    delete p2;
-    delete p3;
-    delete p4;
-    delete p5;
-    delete p6;
-    delete p7;
-    delete p8;
-    delete p9;
 
     return 0;
 }

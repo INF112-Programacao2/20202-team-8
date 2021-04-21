@@ -133,3 +133,5 @@ void Personagem::add_pontos_extra(long double forca_extra, long double constitui
     _velocidade_batalha = _velocidade_base;
     _destreza_batalha = _destreza_base;
 }
+
+void Personagem::ataque_basico(){}

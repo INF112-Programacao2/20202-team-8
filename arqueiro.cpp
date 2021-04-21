@@ -16,6 +16,4 @@ Arqueiro::Arqueiro(){
 
 Arqueiro::~Arqueiro(){}
 
-void Arqueiro::ataque1_arqueiro(){}
-
-void Arqueiro::ataque2_arqueiro(){}
+void Arqueiro::ataque_basico(){}

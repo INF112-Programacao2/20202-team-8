@@ -7,8 +7,7 @@ class Guerreiro : public Personagem {
 public:
     Guerreiro();
     ~Guerreiro();
-    void ataque1_guerreiro();
-    void ataque2_guerreiro();
+    void ataque_basico() override;
 };
 
 #endif // GUERREIRO_H

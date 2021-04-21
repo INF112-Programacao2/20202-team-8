@@ -41,6 +41,7 @@ public:
     void set_destreza_batalha(long double destreza_batalha);
     void level_up();
     void add_pontos_extra(long double forca_extra, long double constituicao_extra, long double inteligencia_extra, long double velocidade_extra, long double destreza_extra);
+    virtual void ataque_basico();
 };
 
 #endif // PERSONAGEM_H

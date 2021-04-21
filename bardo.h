@@ -7,8 +7,7 @@ class Bardo : public Personagem {
 public:
     Bardo();
     ~Bardo();
-    void ataque1_bardo();
-    void ataque2_bardo();
+    void ataque_basico() override;
 };
 
 #endif // BARDO_H

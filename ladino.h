@@ -7,8 +7,7 @@ class Ladino : public Personagem {
 public:
     Ladino();
     ~Ladino();
-    void ataque1_ladino();
-    void ataque2_ladino();
+    void ataque_basico() override;
 };
 
 #endif // LADINO_H

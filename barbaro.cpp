@@ -16,6 +16,4 @@ Barbaro::Barbaro(){
 
 Barbaro::~Barbaro(){}
 
-void Barbaro::ataque1_barbaro(){}
-
-void Barbaro::ataque2_barbaro(){}
+void Barbaro::ataque_basico(){}

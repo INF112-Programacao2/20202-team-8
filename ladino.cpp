@@ -16,6 +16,4 @@ Ladino::Ladino(){
 
 Ladino::~Ladino(){}
 
-void Ladino::ataque1_ladino(){}
-
-void Ladino::ataque2_ladino(){}
+void Ladino::ataque_basico(){}

@@ -16,6 +16,4 @@ Guerreiro::Guerreiro(){
 
 Guerreiro::~Guerreiro(){}
 
-void Guerreiro::ataque1_guerreiro(){}
-
-void Guerreiro::ataque2_guerreiro(){}
+void Guerreiro::ataque_basico(){}

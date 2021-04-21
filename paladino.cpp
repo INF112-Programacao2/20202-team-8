@@ -16,6 +16,4 @@ Paladino::Paladino(){
 
 Paladino::~Paladino(){}
 
-void Paladino::ataque1_paladino(){}
-
-void Paladino::ataque2_paladino(){}
+void Paladino::ataque_basico(){}

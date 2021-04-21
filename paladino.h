@@ -7,8 +7,7 @@ class Paladino : public Personagem {
 public:
     Paladino();
     ~Paladino();
-    void ataque1_paladino();
-    void ataque2_paladino();
+    void ataque_basico() override;
 };
 
 #endif // PALADINO_H

@@ -7,8 +7,7 @@ class Arqueiro : public Personagem {
 public:
     Arqueiro();
     ~Arqueiro();
-    void ataque1_arqueiro();
-    void ataque2_arqueiro();
+    void ataque_basico() override;
 };
 
 #endif // ARQUEIRO_H

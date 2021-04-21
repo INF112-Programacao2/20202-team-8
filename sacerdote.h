@@ -7,8 +7,7 @@ class Sacerdote : public Personagem {
 public:
     Sacerdote();
     ~Sacerdote();
-    void ataque1_sacerdote();
-    void ataque2_sacerdote();
+    void ataque_basico() override;
 };
 
 #endif // SACERDOTE_H

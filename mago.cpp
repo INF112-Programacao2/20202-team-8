@@ -16,6 +16,4 @@ Mago::Mago(){
 
 Mago::~Mago(){}
 
-void Mago::ataque1_mago(){}
-
-void Mago::ataque2_mago(){}
+void Mago::ataque_basico(){}

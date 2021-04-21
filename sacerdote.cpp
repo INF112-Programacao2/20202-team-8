@@ -16,6 +16,4 @@ Sacerdote::Sacerdote(){
 
 Sacerdote::~Sacerdote(){}
 
-void Sacerdote::ataque1_sacerdote(){}
-
-void Sacerdote::ataque2_sacerdote(){}
+void Sacerdote::ataque_basico(){}

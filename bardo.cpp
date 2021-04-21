@@ -16,6 +16,4 @@ Bardo::Bardo(){
 
 Bardo::~Bardo(){}
 
-void Bardo::ataque1_bardo(){}
-
-void Bardo::ataque2_bardo(){}
+void Bardo::ataque_basico(){}

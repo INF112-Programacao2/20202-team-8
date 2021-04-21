@@ -7,8 +7,7 @@ class Mago : public Personagem {
 public:
     Mago();
     ~Mago();
-    void ataque1_mago();
-    void ataque2_mago();
+    void ataque_basico() override;
 };
 
 #endif // MAGO_H

@@ -7,8 +7,7 @@ class Barbaro : public Personagem {
 public:
     Barbaro();
     ~Barbaro();
-    void ataque1_barbaro();
-    void ataque2_barbaro();
+    void ataque_basico() override;
 };
 
 #endif // BARBARO_H
