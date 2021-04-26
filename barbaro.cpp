@@ -2,8 +2,8 @@
 #include "personagem.h"
 #include "barbaro.h"
 
-Barbaro::Barbaro(std::string nome, long double forca_base, long double destreza_base, long double constituicao_base, long double inteligencia_base):
-    Personagem(nome,forca_base,destreza_base,constituicao_base,inteligencia_base){
+Barbaro::Barbaro(std::string nome, long double forca, long double destreza, long double constituicao, long double inteligencia):
+    Personagem(nome,forca,destreza,constituicao,inteligencia){
     _ataque_base += 12.0;
     _defesa_base += 7.0;
     _vida_base += 36.0;

@@ -6,7 +6,7 @@
 
 class Sacerdote : public Personagem {
 public:
-    Sacerdote(std::string nome, long double forca_base, long double destreza_base, long double constituicao_base, long double inteligencia_base);
+    Sacerdote(std::string nome, long double forca, long double destreza, long double constituicao, long double inteligencia);
     ~Sacerdote();
 
     // ATACAR

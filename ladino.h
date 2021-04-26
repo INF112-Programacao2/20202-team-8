@@ -6,7 +6,7 @@
 
 class Ladino : public Personagem {
 public:
-    Ladino(std::string nome, long double forca_base, long double destreza_base, long double constituicao_base, long double inteligencia_base);
+    Ladino(std::string nome, long double forca, long double destreza, long double constituicao, long double inteligencia);
     ~Ladino();
 
     // ATACAR
