@@ -1,13 +1,18 @@
 #ifndef SACERDOTE_H
 #define SACERDOTE_H
 
+#include <string>
 #include "personagem.h"
 
 class Sacerdote : public Personagem {
 public:
-    Sacerdote();
+    Sacerdote(std::string nome, long double forca_base, long double destreza_base, long double constituicao_base, long double inteligencia_base);
     ~Sacerdote();
-    void ataque_basico() override;
+
+    // ATACAR
+    virtual int atacar() override;
+    // DEFENDER
+    virtual int defender() override;
 };
 
 #endif // SACERDOTE_H
