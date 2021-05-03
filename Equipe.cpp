@@ -41,11 +41,39 @@ Personagem* Equipe::get_personagem(int ordem){
     }
 }
 
-/*void Equipe::IfPersonagem_morrer(){
+void Equipe::IfPersonagem_morrer(){
 
-    for(int i=0; i<_tamanho; i++){
-        if(_equipe.at(i)->get_vida_batalha() == 0){
-           _equipe.erase(_equipe.begin()+i);
+    int cont=0;
+
+    while (1){
+        if(_equipe.at(0)->get_vida_batalha() == 0){
+           _equipe.erase(_equipe.begin()+0);
+           _tamanho = _equipe.size();
+        }
+
+        if(_tamanho >=2){
+            if(_equipe.at(1)->get_vida_batalha() == 0){
+                _equipe.erase(_equipe.begin()+1);
+                _tamanho = _equipe.size();
+            }
+        }
+
+        if(_tamanho >=3 ){
+            if(_equipe.at(2)->get_vida_batalha() == 0){
+                _equipe.erase(_equipe.begin()+2);
+                _tamanho = _equipe.size();
+            }
+        }
+
+        if(_tamanho == 4){
+            if(_equipe.at(3)->get_vida_batalha() == 0){
+                _equipe.erase(_equipe.begin()+3);
+                _tamanho = _equipe.size();
+            }
+        }
+        cont++;
+        if(cont==4){
+            break;
         }
     }
-}*/
+}

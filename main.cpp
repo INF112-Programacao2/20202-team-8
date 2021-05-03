@@ -14,6 +14,7 @@
 
 void InformacoesTeste(Equipe &jogador){
 
+    jogador.IfPersonagem_morrer();
     std::cout<<"------------INFORMACOES------------"<<std::endl;
     for(int i=0; i<jogador.get_tamanho_equipe(); i++){
 
@@ -46,8 +47,15 @@ int main(){
     
     InformacoesTeste(equipe_jogador);
 
+    //testando pos batalha
     PosBatalha batalha1(equipe_jogador);
 
+    //2 PERSONAGENS MORRERAM NA BATALHA
+
+    equipe_jogador.get_personagem(0)->set_vida_batalha(0);
+    equipe_jogador.get_personagem(1)->set_vida_batalha(0);
+
+    //teste 2
     InformacoesTeste(equipe_jogador);
     
     
