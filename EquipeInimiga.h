@@ -17,4 +17,4 @@ public:
     void IfInimigo_morrer();
 };
 
-#endif // EQUIPE_H
+#endif // EQUIPEINIMIGA_H
