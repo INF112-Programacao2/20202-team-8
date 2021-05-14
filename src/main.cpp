@@ -10,6 +10,7 @@
 #include "../include/personagem/Paladino.h"
 #include "../include/personagem/Sacerdote.h"
 #include "../include/personagem/Equipe.h"
+//#include "../include/iniciar.h"
 #include "../include/PosBatalha.h"
 #include "../include/inimigo/Inimigo.h"
 #include "../include/inimigo/Slime.h"
@@ -69,7 +70,6 @@ int main(int argc, char** argv){
     Arqueiro ranger("Arqueiro",0,0,0,0);
     Ladino rougue("Ladino",0,0,0,0);
     Equipe equipe_jogador(paladin,cleric,mage,ranger);
-
     
     InformacoesTestePersonagens(equipe_jogador);
 
@@ -78,8 +78,8 @@ int main(int argc, char** argv){
 
     //2 PERSONAGENS MORRERAM NA BATALHA
 
-    equipe_jogador.get_personagem(0)->set_vida_batalha(0);
-    equipe_jogador.get_personagem(1)->set_vida_batalha(0);
+    equipe_jogador.get_personagem(0)->set_vida_batalha(0.0);
+    equipe_jogador.get_personagem(1)->set_vida_batalha(0.0);
 
     //teste 2
     InformacoesTestePersonagens(equipe_jogador);
@@ -100,6 +100,6 @@ int main(int argc, char** argv){
 
     //TESTE
     InformacoesTesteInimigos(equipe_inimiga);
-
+    
     return 0;
 }

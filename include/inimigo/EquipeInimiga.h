@@ -8,7 +8,7 @@ class EquipeInimiga{
 private:
     int _tamanho;
 public:
-    std::vector<Inimigo*> _equipe_inimiga;
+    std::vector<Inimigo> _equipe_inimiga;
     EquipeInimiga(Inimigo inimigo1, Inimigo inimigo2, Inimigo inimigo3, Inimigo inimigo4);
     ~EquipeInimiga();
 

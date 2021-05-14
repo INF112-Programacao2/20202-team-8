@@ -5,7 +5,7 @@
 
 class PosBatalha {
 public:
-    PosBatalha(Equipe &equipe);
+    PosBatalha(Equipe equipe);
     ~PosBatalha();
 }; 
 

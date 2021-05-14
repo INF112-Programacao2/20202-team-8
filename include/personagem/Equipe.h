@@ -8,7 +8,7 @@ class Equipe{
 private:
     int _tamanho;
 public:
-    std::vector<Personagem*> _equipe;
+    std::vector<Personagem> _equipe;
     Equipe(Personagem personagem1, Personagem personagem2, Personagem personagem3, Personagem personagem4);
     ~Equipe();
 

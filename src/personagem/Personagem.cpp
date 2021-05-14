@@ -5,6 +5,7 @@
 //CONSTRUTOR E DESTRUTOR
 Personagem::Personagem(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
     _nome(nome), _forca(forca), _destreza(destreza), _constituicao(constituicao), _inteligencia(inteligencia) {}
+
 Personagem::~Personagem(){}
 
 //GET NOME

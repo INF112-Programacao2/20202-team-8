@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 #include "../include/personagem/Equipe.h"
 #include "../include/PosBatalha.h"
 
-PosBatalha::PosBatalha(Equipe &equipe){
+PosBatalha::PosBatalha(Equipe equipe){
 
     int op,nova_forca,nova_destreza,nova_constituicao,nova_inteligencia;
     double novo_ataque, nova_vida, nova_mana, novo_dano_magico, novo_acerto, nova_velocidade;
