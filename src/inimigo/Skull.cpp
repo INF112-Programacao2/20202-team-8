@@ -23,5 +23,14 @@ int Skull::atacar(){
 }
 
 int Skull::defender(){
-    return _defesa;
+    return (_defesa * 4);
+}
+
+double Skull::ataque_1(){
+    return (_ataque * 1.8);
+};
+
+double Skull::ataque_2(){
+    //Redução de defesa
+    return (_ataque * 1.3);
 }

@@ -2,9 +2,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Ladino.h"
 
-Ladino::Ladino(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Ladino::Ladino(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Ladino";
+
     //INICIANDO STATS BASE
     _ataque_base=6.0;
     _defesa_base=5.0;
@@ -40,5 +43,17 @@ int Ladino::atacar(){
 }
 
 int Ladino::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Ladino::ataque_1(){
+    set_mana_batalha(_mana_batalha - 2);
+    set_acerto_batalha (_acerto_batalha * 1.5);
+    return (_ataque_batalha * 1.8);
+}
+
+double Ladino::ataque_2(){
+    //Acerta todos inimigos
+    set_mana_batalha(_mana_batalha - 2);
+    return (_ataque_batalha * 1.3);
 }

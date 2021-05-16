@@ -3,9 +3,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Paladino.h"
 
-Paladino::Paladino(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Paladino::Paladino(std::string nome):
+    Personagem(nome){
     
+    //CLASSE
+    _classe="Paladino";
+
     //INICIANDO STATS BASE
     _ataque_base=8.0;
     _defesa_base=9.0;
@@ -41,5 +44,18 @@ int Paladino::atacar(){
 }
 
 int Paladino::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Paladino::ataque_1(){
+    set_mana_batalha(_mana_batalha - 2);
+    //Diminui velocidade e defesa dos inimigos
+    return (_ataque_batalha * 0.5);
+}
+
+double Paladino::ataque_2(){
+    set_mana_batalha(_mana_batalha - 1.5);
+    set_defesa_batalha(_defesa_batalha * 3);
+    set_vida_batalha(_vida_batalha*1.1);
+    return 0.0;
 }

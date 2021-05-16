@@ -1,20 +1,61 @@
 #include <vector>
-#include <iostream>
 #include "../../include/personagem/Equipe.h"
 #include "../../include/personagem/Personagem.h"
+#include "../../include/personagem/Arqueiro.h"
+#include "../../include/personagem/Barbaro.h"
+#include "../../include/personagem/Bardo.h"
+#include "../../include/personagem/Guerreiro.h"
+#include "../../include/personagem/Ladino.h"
+#include "../../include/personagem/Mago.h"
+#include "../../include/personagem/Paladino.h"
+#include "../../include/personagem/Sacerdote.h"
 
-Equipe::Equipe(Personagem personagem1, Personagem personagem2, Personagem personagem3, Personagem personagem4){
+void Equipe::cria_personagem(int personagem, std::string nome){
 
-    
-    //Personagem* p1 = new Personagem(personagem1);
-    //Personagem* p2 = new Personagem(personagem2);
-    //Personagem* p3 = new Personagem(personagem3);
-    //Personagem* p4 = new Personagem(personagem4);
-    
-    _equipe.push_back(personagem1);
-    _equipe.push_back(personagem2);
-    _equipe.push_back(personagem3);
-    _equipe.push_back(personagem4);
+    if(personagem==0){
+        Personagem a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Arqueiro a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Barbaro a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Bardo a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Guerreiro a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Ladino a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Mago a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Paladino a(nome);
+        _equipe.push_back(a);
+    }
+    else if(personagem==1){
+        Sacerdote a(nome);
+        _equipe.push_back(a);
+    }
+}
+
+Equipe::Equipe(int personagem1,std::string nome1,int personagem2,std::string nome2,int personagem3,std::string nome3,int personagem4,std::string nome4){
+
+    cria_personagem(personagem1,nome1);
+    cria_personagem(personagem1,nome2);
+    cria_personagem(personagem1,nome3);
+    cria_personagem(personagem1,nome4);
 
     _tamanho = _equipe.size();
 }
@@ -26,6 +67,7 @@ int Equipe::get_tamanho_equipe(){
 }
 
 Personagem* Equipe::get_personagem(int ordem){
+
     Personagem* aux;
     
     if(ordem == 0){

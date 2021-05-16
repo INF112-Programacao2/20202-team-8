@@ -23,5 +23,53 @@ int Witcher::atacar(){
 }
 
 int Witcher::defender(){
-    return _defesa;
+    return (_defesa * 4);
+}
+
+double Witcher::ataque_1(){
+    if(_Transformada == false)
+        return (_ataque * 1.5);
+    else
+        return (_ataque * 1.8);
+}
+
+double Witcher::ataque_2(){
+    if(_Transformada == false)
+        return (_ataque * 2.5);
+    else
+    {
+        //Cura 15% do dano
+        return (_ataque *2.5);
+    }
+}
+
+double Witcher::ataque_3(){
+    if(_Transformada == false)
+    {
+        //Aumenta ataque de todos aliados
+        set_ataque (_nivel + _ataque);
+        return 0;
+    }
+    else
+    {
+        //Cura vida
+        set_ataque(_ataque * 1.2);
+        set_defesa(_defesa * 1.2);
+        set_velocidade(_velocidade * 1.2);
+        return 0;
+    }
+}
+
+double Witcher::ataque_4(){
+    if(_Transformada == false)
+    {
+        _Transformada = true;
+        return 0;
+    }
+    else
+    {
+        //Diminui spd do alvo
+        return (_ataque * 1.6);
+    }
+
 }

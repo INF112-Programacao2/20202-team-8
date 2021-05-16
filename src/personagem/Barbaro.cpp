@@ -2,14 +2,17 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Barbaro.h"
 
-Barbaro::Barbaro(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Barbaro::Barbaro(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Barbaro";
+
     //INICIANDO STATS BASE
     _ataque_base=12.0;
     _defesa_base=7.0;
     _vida_base=36.0;
-    _mana_base=0.0;
+    _mana_base=4.0;
     _dano_magico_base=0.0;
     _acerto_base=0.0;
     _velocidade_base=4.0;
@@ -40,5 +43,16 @@ int Barbaro::atacar(){
 }
 
 int Barbaro::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Barbaro::ataque_1(){
+    set_ataque_batalha(_ataque_batalha * 1.5);
+    set_mana_batalha(_mana_batalha - 2);
+    return (_ataque_batalha * 2);
+}
+
+double Barbaro::ataque_2(){
+    set_mana_batalha(_mana_batalha - 1);
+    return (_ataque_batalha * 1.8);
 }

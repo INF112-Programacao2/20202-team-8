@@ -2,9 +2,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Arqueiro.h"
 
-Arqueiro::Arqueiro(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Arqueiro::Arqueiro(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Arqueiro";
+
     //INICIANDO STATS BASE
     _ataque_base=7.0;
     _defesa_base=5.0;
@@ -40,5 +43,15 @@ int Arqueiro::atacar(){
 }
 
 int Arqueiro::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Arqueiro::ataque_1(){
+    set_mana_batalha(_mana_batalha - 2);
+    return (_ataque_batalha * 2);
+}
+
+double Arqueiro::ataque_2(){
+    set_mana_batalha(_mana_batalha - 1.5);
+    return (2 * _ataque_batalha * 1.3);
 }

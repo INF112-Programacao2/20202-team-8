@@ -2,9 +2,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Guerreiro.h"
 
-Guerreiro::Guerreiro(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Guerreiro::Guerreiro(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Guerreiro";
+
     //INICIANDO STATS BASE
     _ataque_base=10.0;
     _defesa_base=7.0;
@@ -40,5 +43,16 @@ int Guerreiro::atacar(){
 }
 
 int Guerreiro::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Guerreiro::ataque_1(){
+    set_mana_batalha(_mana_batalha - 1);
+    return (_ataque_batalha * 1.5);
+}
+
+double Guerreiro::ataque_2(){
+    set_mana_batalha(_mana_batalha - 1.5);
+    //Diminui def do alvo
+    return (_ataque_batalha * 1.3);
 }

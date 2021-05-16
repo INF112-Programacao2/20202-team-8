@@ -6,12 +6,16 @@
 
 class Ladino : public Personagem {
 public:
-    Ladino(std::string nome, int forca, int destreza, int constituicao, int inteligencia);
+    Ladino(std::string nome);
     ~Ladino();
 
     // ATAQUE E DEFESA
     virtual int atacar() override;
     virtual int defender() override;
+
+    // HABILIDADE ESPECIAL
+    virtual double ataque_1() override;
+    virtual double ataque_2() override;
 };
 
 #endif // LADINO_H

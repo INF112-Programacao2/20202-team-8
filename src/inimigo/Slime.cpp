@@ -23,5 +23,10 @@ int Slime::atacar(){
 }
 
 int Slime::defender(){
-    return _defesa;
+    return (_defesa * 4);
+}
+
+double Slime::ataque_1(){
+//diminui velocidade do alvo
+    return (_ataque * 1,5);
 }

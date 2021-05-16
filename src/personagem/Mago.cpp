@@ -2,9 +2,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Mago.h"
 
-Mago::Mago(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Mago::Mago(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Mago";
+
     //INICIANDO STATS BASE
     _ataque_base=3.0;
     _defesa_base=2.0;
@@ -40,5 +43,16 @@ int Mago::atacar(){
 }
 
 int Mago::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Mago::ataque_1(){
+    set_mana_batalha(_mana_batalha - 2.5);
+    //Reduz vel de todos inimigos
+    return (_dano_magico_batalha * 1.3);
+}
+
+double Mago::ataque_2(){
+    set_mana_batalha(_mana_batalha - 2);
+    return (_dano_magico_batalha * 2);
 }

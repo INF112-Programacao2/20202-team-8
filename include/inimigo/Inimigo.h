@@ -45,8 +45,14 @@ public:
     void set_velocidade(double velocidade);
 
     //COMANDO PARA REALIZAR ACAO ATACAR E DEFENDER
-    virtual int atacar();
-    virtual int defender();
+        virtual int atacar();
+        virtual int defender();
+
+        //COMANDOS PARA HABILIDADES ESPECIAIS
+        virtual double ataque_1();
+        virtual double ataque_2();
+        virtual double ataque_3();
+        virtual double ataque_4();
 
 };
 

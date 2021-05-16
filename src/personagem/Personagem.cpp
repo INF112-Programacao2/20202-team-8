@@ -3,28 +3,35 @@
 #include "../../include/personagem/Personagem.h"
 
 //CONSTRUTOR E DESTRUTOR
-Personagem::Personagem(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    _nome(nome), _forca(forca), _destreza(destreza), _constituicao(constituicao), _inteligencia(inteligencia) {}
+Personagem::Personagem(std::string nome):
+    _nome(nome) {
+    _classe="Personagem";
+}
 
 Personagem::~Personagem(){}
 
 //GET NOME
 std::string Personagem::get_nome(){
-    return _nome;
+    return this->_nome;
+}
+
+//GET CLASSE
+std::string Personagem::get_classe(){
+    return this->_classe;
 }
 
 //GET & SET MODIFICADORES
 int Personagem::get_forca(){
-    return _forca;
+    return this->_forca;
 }
 int Personagem::get_destreza(){
-    return _destreza;
+    return this->_destreza;
 }
 int Personagem::get_constituicao(){
-    return _constituicao;
+    return this->_constituicao;
 }
 int Personagem::get_inteligencia(){
-    return _inteligencia;
+    return this->_inteligencia;
 }
 void Personagem::set_forca(int forca){
     _forca=forca;
@@ -41,25 +48,25 @@ void Personagem::set_inteligencia(int inteligencia){
 
 //GET & SET STATS 
 int Personagem::get_ataque(){
-    return _ataque;
+    return this->_ataque;
 }
 int Personagem::get_defesa(){
-    return _defesa;
+    return this->_defesa;
 }
 int Personagem::get_vida(){
-    return _vida;
+    return this->_vida;
 }
 int Personagem::get_mana(){
-    return _mana;
+    return this->_mana;
 }
 int Personagem::get_dano_magico(){
-    return _dano_magico;
+    return this->_dano_magico;
 }
 int Personagem::get_acerto(){
-    return _acerto;
+    return this->_acerto;
 }
 int Personagem::get_velocidade(){
-    return _velocidade;
+    return this->_velocidade;
 }
 void Personagem::set_ataque(double ataque){
     _ataque=ataque;
@@ -85,48 +92,48 @@ void Personagem::set_velocidade(double velocidade){
 
 //GET STATS (BASE)
 int Personagem::get_ataque_base(){
-    return _ataque_base;
+    return this->_ataque_base;
 }
 int Personagem::get_defesa_base(){
-    return _defesa_base;
+    return this->_defesa_base;
 }
 int Personagem::get_vida_base(){
-    return _vida_base;
+    return this->_vida_base;
 }
 int Personagem::get_mana_base(){
-    return _mana_base;
+    return this->_mana_base;
 }
 int Personagem::get_dano_magico_base(){
-    return _dano_magico_base;
+    return this->_dano_magico_base;
 }
 int Personagem::get_acerto_base(){
-    return _acerto_base;
+    return this->_acerto_base;
 }
 int Personagem::get_velocidade_base(){
-    return _velocidade_base;
+    return this->_velocidade_base;
 }
 
 //GET & SET STATS (BATALHA)
 int Personagem::get_ataque_batalha(){
-    return _ataque_batalha;
+    return this->_ataque_batalha;
 }
 int Personagem::get_defesa_batalha(){
-    return _defesa_batalha;
+    return this->_defesa_batalha;
 }
 int Personagem::get_vida_batalha(){
-    return _vida_batalha;
+    return this->_vida_batalha;
 }
 int Personagem::get_mana_batalha(){
-    return _mana_batalha;
+    return this->_mana_batalha;
 }
 int Personagem::get_dano_magico_batalha(){
-    return _dano_magico_batalha;
+    return this->_dano_magico_batalha;
 }
 int Personagem::get_acerto_batalha(){
-    return _acerto_batalha;
+    return this->_acerto_batalha;
 }
 int Personagem::get_velocidade_batalha(){
-    return _velocidade_batalha;
+    return this->_velocidade_batalha;
 }
 void Personagem::set_ataque_batalha(double ataque_batalha){
     _ataque_batalha=ataque_batalha;
@@ -150,36 +157,18 @@ void Personagem::set_velocidade_batalha(double velocidade_batalha){
     _velocidade_batalha=velocidade_batalha;
 }
 
-//COMANDO PARA ATACAR E DEFENDER
-/*int Personagem::acao(){
-
-    int op;
-    std::cout<<"-----------------------------------------------------------------------"<<std::endl;
-    std::cout<<"Turno de *"<<_nome<<"* , realize uma acao!"<<std::endl;
-    std::cout<<"1) Atacar: "<<std::endl;
-    std::cout<<"2) Defender: "<<std::endl;
-    std::cout<<"3) Usar Habilidade: "<<std::endl;
-    std::cout<<"-----------------------------------------------------------------------"<<std::endl;
-    std::cin>>op;
-
-    switch (op)
-    {
-    case 1:
-        return 1;
-        break;
-    case 2:
-        return 2;
-        break;
-    case 3:
-        return 3;
-        break;
-    default:
-        break;
-    }
-}*/
 int Personagem::atacar(){
     return 0;
 }
 int Personagem::defender(){
     return 0;
+}
+
+//COMANDOS PARA HABILIDADES ESPECIAIS
+double Personagem::ataque_1(){
+    return 0.0;
+}
+
+double Personagem::ataque_2(){
+    return 0.0;
 }

@@ -61,3 +61,17 @@ int Inimigo::atacar(){
 int Inimigo::defender(){
     return 0;
 }
+
+//COMANDOS PARA HABILIDADES ESPECIAIS
+double Inimigo::ataque_1(){
+    return 0.0;
+}
+double Inimigo::ataque_2(){
+    return 0.0;
+}
+double Inimigo::ataque_3(){
+    return 0.0;
+}
+double Inimigo::ataque_4(){
+    return 0.0;
+}

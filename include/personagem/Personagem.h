@@ -7,12 +7,13 @@ class Personagem{
 protected:
     // NOME
     std::string _nome;
+    std::string _classe;
 
     // MODIFICADORES
-    int _forca;
-    int _destreza;
-    int _constituicao;
-    int _inteligencia;
+    int _forca=0;
+    int _destreza=0;
+    int _constituicao=0;
+    int _inteligencia=0;
 
     // STATS (OS STATS SAO INICIADOS NA CLASSE DO PERSONAGEM)
     double _ataque=0;
@@ -43,11 +44,14 @@ protected:
 
 public:
     //CONSTRUTOR E DESTRUTOR
-    Personagem(std::string nome, int forca, int destreza, int constituicao, int inteligencia);
+    Personagem(std::string nome);
     ~Personagem();
 
     //GET NOME
     std::string get_nome();
+
+    //GET CLASSE
+    std::string get_classe();
 
     //GET & SET MODIFICADORES
     int get_forca();
@@ -101,10 +105,13 @@ public:
     void set_velocidade_batalha(double velocidade_batalha);
 
     //COMANDO PARA REALIZAR ACAO ATACAR E DEFENDER
-    /*int acao();*/
+
     virtual int atacar();
     virtual int defender();
 
+    // HABILIDADE ESPECIAL
+    virtual double ataque_1();
+    virtual double ataque_2();
 };
 
 #endif //PERSONAGEM_H

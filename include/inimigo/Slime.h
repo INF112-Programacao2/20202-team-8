@@ -11,6 +11,9 @@ public:
     // ATAQUE E DEFESA
     virtual int atacar() override;
     virtual int defender() override;
+
+    //COMANDOS PARA HABILIDADES ESPECIAIS
+    virtual double ataque_1() override;
 };
 
 #endif // SLIME_H

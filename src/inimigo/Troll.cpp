@@ -23,5 +23,22 @@ int Troll::atacar(){
 }
 
 int Troll::defender(){
-    return _defesa;
+    return (_defesa * 4);
+}
+
+double Troll::ataque_1(){
+    set_ataque(_nivel + _ataque);
+    return (_ataque * 1.5);
+}
+
+double Troll::ataque_2(){
+    //Reduz defesa
+    //Reduz spd
+    return (_ataque * 0.8);
+}
+
+double Troll::ataque_3(){
+    //Aumenta def de todos aliados
+    set_defesa(_nivel + _defesa);
+    return 0;
 }

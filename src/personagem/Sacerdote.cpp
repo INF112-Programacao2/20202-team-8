@@ -2,8 +2,11 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Sacerdote.h"
 
-Sacerdote::Sacerdote(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Sacerdote::Sacerdote(std::string nome):
+    Personagem(nome){
+
+    //CLASSE
+    _classe="Sacerdote";
 
     //INICIANDO STATS BASE
     _ataque_base=3.0;
@@ -40,5 +43,16 @@ int Sacerdote::atacar(){
 }
 
 int Sacerdote::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Sacerdote::ataque_1(){
+    set_mana_batalha(_mana_batalha - 2);
+    return (_inteligencia * 2);
+}
+
+double Sacerdote::ataque_2(){
+    set_mana_batalha(_mana_batalha - 1.5);
+    //cura todos aliados
+    return (_inteligencia * 1.3);
 }

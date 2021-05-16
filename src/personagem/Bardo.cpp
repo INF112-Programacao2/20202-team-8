@@ -2,9 +2,12 @@
 #include "../../include/personagem/Personagem.h"
 #include "../../include/personagem/Bardo.h"
 
-Bardo::Bardo(std::string nome, int forca, int destreza, int constituicao, int inteligencia):
-    Personagem(nome,forca,destreza,constituicao,inteligencia){
+Bardo::Bardo(std::string nome):
+    Personagem(nome){
             
+    //CLASSE
+    _classe="Bardo";
+
     //INICIANDO STATS BASE
     _ataque_base=2.0;
     _defesa_base=3.0;
@@ -40,5 +43,17 @@ int Bardo::atacar(){
 }
 
 int Bardo::defender(){
-    return _defesa_batalha;
+    return (_defesa_batalha * 4);
+}
+
+double Bardo::ataque_1(){
+    set_mana_batalha(_mana_batalha - 1.5);
+    //Aumenta ataque do time
+    return ((_ataque_batalha * 1.5) + (_velocidade_batalha * 0.5));
+}
+
+double Bardo::ataque_2(){
+    //Aumenta def e spd de todos aliados
+    set_mana_batalha(_mana_batalha - 1.5);
+    return 0;
 }
