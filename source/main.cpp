@@ -22,11 +22,7 @@
 #include "../include/inimigo/EquipeInimiga.h"
 
 int main(int argc, char** argv){
-
     Jogo a;
-    a.iniciar();
-    a.pre_batalha();
-    a.pre_batalha();
-
+    a.ciclo();
     return 0;
 }

@@ -6,14 +6,11 @@
 
 class Barbaro : public Personagem {
 public:
+    // CONSTRUTOR E DESTRUTOR
     Barbaro(std::string nome);
     ~Barbaro();
 
-    // ATAQUE E DEFESA
-    virtual int atacar() override;
-    virtual int defender() override;
-
-    // HABILIDADE ESPECIAL
+    // HABILIDADES ESPECIAIS
     virtual double ataque_1() override;
     virtual double ataque_2() override;
 };

@@ -6,14 +6,11 @@
 
 class Sacerdote : public Personagem {
 public:
+    // CONSTRUTOR E DESTRUTOR
     Sacerdote(std::string nome);
     ~Sacerdote();
 
-    // ATAQUE E DEFESA
-    virtual int atacar() override;
-    virtual int defender() override;
-
-    // HABILIDADE ESPECIAL
+    // HABILIDADES ESPECIAIS
     virtual double ataque_1() override;
     virtual double ataque_2() override;
 };

@@ -24,21 +24,22 @@ private:
     Equipe _equipe_jogador;
 
     EquipeInimiga _equipe_torre1,_equipe_torre2,_equipe_torre3,_equipe_torre4,_equipe_torre5;
-    EquipeInimiga _equipe_torre6,_equipe_torre7,_equipe_torre8,_equipe_torre9,_equipe_torre10;
 
-    int ordena_batalha(Equipe equipe_jogador, EquipeInimiga equipe_torre);
-    double acao(int numero, Equipe equipe_jogador, EquipeInimiga equipe_torre);
+    int ordena_batalha(EquipeInimiga &equipe_torre);
+    void acao(int numero,EquipeInimiga &equipe_torre);
     void informacoes_jogador();
     void informacoes_inimigos(EquipeInimiga equipe_torre);
+    void ataque_inimigo(EquipeInimiga &equipe_torre, int posicao_inimigo, int posicao_jogador);
 
-    void terminar_jogo();
 public:
     Jogo();
     ~Jogo();
 
     void iniciar();
     void pre_batalha();
-    void batalha();
+    void batalha(EquipeInimiga &equipe_inimiga);
+    void ciclo();
+
 };
 
 #endif // JOGO_H
