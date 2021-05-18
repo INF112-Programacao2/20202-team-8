@@ -24,6 +24,95 @@
 #include <stdlib.h>
 #include <time.h>
 
+void Jogo::trata_excecao_classe(int &p,int aux){
+    char p0[20];
+    std::string teste;
+
+    do
+    {
+        std::cout << std::endl << "Classe do personagem " << aux << ": ";
+        std::cin >> p0;
+        teste = p0;
+
+        for(int i=0; p0[i] != '\0'; i++)
+        {
+            if(teste == "exit")
+            {
+                std::cout<<"Obrigado por jogar :) !!"<<std::endl;
+                exit(0);
+            }
+
+            if(teste == "Arqueiro" || teste == "arqueiro"){
+                p = 1;
+                break;
+            }
+            else if(teste == "Barbaro" || teste == "barbaro"){
+                p = 2;
+                break;
+            }
+            else if(teste == "Bardo" || teste == "bardo"){
+                p = 3;
+                break;
+            }
+            else if(teste == "Guerreiro" || teste == "guerreiro"){
+                p = 4;
+                break;
+            }
+            else if(teste == "Ladino" || teste == "ladino"){
+                p = 5;
+                break;
+            }
+            else if(teste == "Mago" || teste == "mago"){
+                p = 6;
+                break;
+            }
+            else if(teste == "Paladino" || teste == "paladino"){
+                p = 7;
+                break;
+            }
+            else if(teste == "Sacerdote" || teste == "sacerdote"){
+                p = 8;
+                break;
+            }
+
+            else if(p0[i] >= 'a' && p0[i] <= 'z' || p0[i] >= 'A' && p0[i] <= 'Z')
+            {
+                try
+                {
+                    //Erro de digitar letra
+                    throw (ExcecaoRPG());
+                }
+
+                catch (ExcecaoRPG L)
+                {
+                    L.letra();
+                    break;
+                }
+            }
+            else if(p0[i+1] == '\0')
+                {
+                    p = atoi(p0);
+
+                    if(p < 1 || p > 8)
+                    {
+                        try
+                        {
+                            //Erro de digitar letra
+                            throw (ExcecaoRPG());
+                        }
+
+                        catch (ExcecaoRPG N)
+                        {
+                            N.valor_personagem();
+                            break;
+                        }
+                    }
+                }
+        }
+    }while(p < 1 || p > 8);
+
+}
+
 void Jogo::informacoes_jogador(){
     std::cout<<std::endl;
     std::cout<<"--------------------------------------------INFORMACOES--------------------------------------------"<<std::endl;
@@ -541,378 +630,33 @@ void Jogo::iniciar(){
 
     std::cout << std::endl << "Digite os nomes das classes ou os seus numeros para selecionar os personagens que voce ira usar.";
 
-    do
-    {
-        std::cout << std::endl << "Classe do personagem 1: ";
-        std::cin >> p0;
-        teste = p0;
-
-        for(int i=0; p0[i] != '\0'; i++)
-        {
-            if(teste == "exit")
-            {
-                std::cout<<"Obrigado por jogar :) !!"<<std::endl;
-                exit(0);
-            }
-
-            if(teste == "Arqueiro" || teste == "arqueiro"){
-                p1 = 1;
-                break;
-            }
-            else if(teste == "Barbaro" || teste == "barbaro"){
-                p1 = 2;
-                break;
-            }
-            else if(teste == "Bardo" || teste == "bardo"){
-                p1 = 3;
-                break;
-            }
-            else if(teste == "Guerreiro" || teste == "guerreiro"){
-                p1 = 4;
-                break;
-            }
-            else if(teste == "Ladino" || teste == "ladino"){
-                p1 = 5;
-                break;
-            }
-            else if(teste == "Mago" || teste == "mago"){
-                p1 = 6;
-                break;
-            }
-            else if(teste == "Paladino" || teste == "paladino"){
-                p1 = 7;
-                break;
-            }
-            else if(teste == "Sacerdote" || teste == "sacerdote"){
-                p1 = 8;
-                break;
-            }
-
-            else if(p0[i] >= 'a' && p0[i] <= 'z' || p0[i] >= 'A' && p0[i] <= 'Z')
-            {
-                try
-                {
-                    //Erro de digitar letra
-                    throw (ExcecaoRPG());
-                }
-
-                catch (ExcecaoRPG L)
-                {
-                    L.letra();
-                    break;
-                }
-            }
-            else if(p0[i+1] == '\0')
-                {
-                    p1 = atoi(p0);
-
-                    if(p1 < 1 || p1 > 8)
-                    {
-                        try
-                        {
-                            //Erro de digitar letra
-                            throw (ExcecaoRPG());
-                        }
-
-                        catch (ExcecaoRPG N)
-                        {
-                            N.valor_personagem();
-                            break;
-                        }
-                    }
-                }
-        }
-    }while(p1 < 1 || p1 > 8);
-
+    // PERSONAGEM 1
+    trata_excecao_classe(p1,1);
     std::cout << "Digite o nome do personagem: ";
     std::cin.ignore();
     std::getline (std::cin,n1);
 
-
-    do
-    {
-        std::cout << std::endl << "Classe do personagem 2: ";
-        std::cin >> p0;
-        teste = p0;
-
-        for(int i=0; p0[i] != '\0'; i++)
-        {
-            if(teste == "exit")
-            {
-                std::cout<<"Obrigado por jogar :) !!"<<std::endl;
-                exit(0);
-            }
-
-            if(teste == "Arqueiro" || teste == "arqueiro"){
-                p2 = 1;
-                break;
-            }
-            else if(teste == "Barbaro" || teste == "barbaro"){
-                p2 = 2;
-                break;
-            }
-            else if(teste == "Bardo" || teste == "bardo"){
-                p2 = 3;
-                break;
-            }
-            else if(teste == "Guerreiro" || teste == "guerreiro"){
-                p2 = 4;
-                break;
-            }
-            else if(teste == "Ladino" || teste == "ladino"){
-                p2 = 5;
-                break;
-            }
-            else if(teste == "Mago" || teste == "mago"){
-                p2 = 6;
-                break;
-            }
-            else if(teste == "Paladino" || teste == "paladino"){
-                p2 = 7;
-                break;
-            }
-            else if(teste == "Sacerdote" || teste == "sacerdote"){
-                p2 = 8;
-                break;
-            }
-
-            else if(p0[i] >= 'a' && p0[i] <= 'z' || p0[i] >= 'A' && p0[i] <= 'Z')
-            {
-                try
-                {
-                    //Erro de digitar letra
-                    throw (ExcecaoRPG());
-                }
-
-                catch (ExcecaoRPG L)
-                {
-                    L.letra();
-                    break;
-                }
-            }
-            else if(p0[i+1] == '\0')
-                {
-                    p2 = atoi(p0);
-
-                    if(p2 < 1 || p2 > 8)
-                    {
-                        try
-                        {
-                            //Erro de digitar letra
-                            throw (ExcecaoRPG());
-                        }
-
-                        catch (ExcecaoRPG N)
-                        {
-                            N.valor_personagem();
-                            break;
-                        }
-                    }
-                }
-        }
-    }while(p2 < 1 || p2 > 8);
-
+    // PERSONAGEM 2
+    trata_excecao_classe(p2,2);
     std::cout << "Digite o nome do personagem: ";
     std::cin.ignore();
     std::getline (std::cin,n2);
 
-
-    do
-    {
-        std::cout << std::endl << "Classe do personagem 3: ";
-        std::cin >> p0;
-        teste = p0;
-
-        for(int i=0; p0[i] != '\0'; i++)
-        {
-            if(teste == "exit")
-            {
-                std::cout<<"Obrigado por jogar :) !!"<<std::endl;
-                exit(0);
-            }
-
-            if(teste == "Arqueiro" || teste == "arqueiro"){
-                p3 = 1;
-                break;
-            }
-            else if(teste == "Barbaro" || teste == "barbaro"){
-                p3 = 2;
-                break;
-            }
-            else if(teste == "Bardo" || teste == "bardo"){
-                p3 = 3;
-                break;
-            }
-            else if(teste == "Guerreiro" || teste == "guerreiro"){
-                p3 = 4;
-                break;
-            }
-            else if(teste == "Ladino" || teste == "ladino"){
-                p3 = 5;
-                break;
-            }
-            else if(teste == "Mago" || teste == "mago"){
-                p3 = 6;
-                break;
-            }
-            else if(teste == "Paladino" || teste == "paladino"){
-                p3 = 7;
-                break;
-            }
-            else if(teste == "Sacerdote" || teste == "sacerdote"){
-                p3 = 8;
-                break;
-            }
-
-            else if(p0[i] >= 'a' && p0[i] <= 'z' || p0[i] >= 'A' && p0[i] <= 'Z')
-            {
-                try
-                {
-                    //Erro de digitar letra
-                    throw (ExcecaoRPG());
-                }
-
-                catch (ExcecaoRPG L)
-                {
-                    L.letra();
-                    break;
-                }
-            }
-            else if(p0[i+1] == '\0')
-                {
-                    p3 = atoi(p0);
-
-                    if(p3 < 1 || p3 > 8)
-                    {
-                        try
-                        {
-                            //Erro de digitar letra
-                            throw (ExcecaoRPG());
-                        }
-
-                        catch (ExcecaoRPG N)
-                        {
-                            N.valor_personagem();
-                            break;
-                        }
-                    }
-                }
-        }
-    }while(p3 < 1 || p3 > 8);
-
+    // PERSONAGEM 3
+    trata_excecao_classe(p3,3);
     std::cout << "Digite o nome do personagem: ";
     std::cin.ignore();
     std::getline (std::cin,n3);
 
-    do
-    {
-
-        std::cout << std::endl << "Classe do personagem 4: ";
-        std::cin >> p0;
-        teste = p0;
-
-        for(int i=0; p0[i] != '\0'; i++)
-        {
-            if(teste == "exit")
-            {
-                std::cout<<"Obrigado por jogar :) !!"<<std::endl;
-                exit(0);
-            }
-
-            if(teste == "Arqueiro" || teste == "arqueiro"){
-                p4 = 1;
-                break;
-            }
-            else if(teste == "Barbaro" || teste == "barbaro"){
-                p4 = 2;
-                break;
-            }
-            else if(teste == "Bardo" || teste == "bardo"){
-                p4 = 3;
-                break;
-            }
-            else if(teste == "Guerreiro" || teste == "guerreiro"){
-                p4 = 4;
-                break;
-            }
-            else if(teste == "Ladino" || teste == "ladino"){
-                p4 = 5;
-                break;
-            }
-            else if(teste == "Mago" || teste == "mago"){
-                p4 = 6;
-                break;
-            }
-            else if(teste == "Paladino" || teste == "paladino"){
-                p4 = 7;
-                break;
-            }
-            else if(teste == "Sacerdote" || teste == "sacerdote"){
-                p4 = 8;
-                break;
-            }
-
-            else if(p0[i] >= 'a' && p0[i] <= 'z' || p0[i] >= 'A' && p0[i] <= 'Z')
-            {
-                try
-                {
-                    //Erro de digitar letra
-                    throw (ExcecaoRPG());
-                }
-
-                catch (ExcecaoRPG L)
-                {
-                    L.letra();
-                    break;
-                }
-            }
-            else if(p0[i+1] == '\0')
-                {
-                    p4 = atoi(p0);
-
-                    if(p4 < 1 || p4 > 8)
-                    {
-                        try
-                        {
-                            //Erro de digitar letra
-                            throw (ExcecaoRPG());
-                        }
-
-                        catch (ExcecaoRPG N)
-                        {
-                            N.valor_personagem();
-                            break;
-                        }
-                    }
-                }
-        }
-    }while(p4 < 1 || p4 > 8);
-
+    // PERSONAGEM 4
+    trata_excecao_classe(p4,4);
     std::cout << "Digite o nome do personagem: ";
     std::cin.ignore();
     std::getline (std::cin,n4);
 
     Equipe equipe_jogador(p1,n1,p2,n2,p3,n3,p4,n4);
 
-    std::cout<<"------------INFORMACOES------------"<<std::endl;
-    for(int i=0; i<equipe_jogador.get_tamanho_equipe(); i++){
-
-        std::cout<<std::endl;
-        std::cout<<"Nome: "<<equipe_jogador.get_personagem(i)->get_nome()<<std::endl;
-        std::cout<<"Classe: "<<equipe_jogador.get_personagem(i)->get_classe()<<std::endl;
-        std::cout<<"Ataque: "<<equipe_jogador.get_personagem(i)->get_ataque()<<std::endl;
-        std::cout<<"Defesa: "<<equipe_jogador.get_personagem(i)->get_defesa()<<std::endl;
-        std::cout<<"Vida: "<<equipe_jogador.get_personagem(i)->get_vida()<<std::endl;
-        std::cout<<"Mana: "<<equipe_jogador.get_personagem(i)->get_mana()<<std::endl;
-        std::cout<<"Dano Magico: "<<equipe_jogador.get_personagem(i)->get_dano_magico()<<std::endl;
-        std::cout<<"Acerto: "<<equipe_jogador.get_personagem(i)->get_acerto()<<std::endl;
-        std::cout<<"Velocidade: "<<equipe_jogador.get_personagem(i)->get_velocidade()<<std::endl;
-        std::cout<<std::endl;
-    }
-
     this->_equipe_jogador = equipe_jogador;
-
-    //informacoes_inimigos(_equipe_torre1);
 
     informacoes_jogador();
 }
@@ -1087,15 +831,27 @@ void Jogo::batalha(EquipeInimiga &equipe_inimiga){
                     acao(i,equipe_inimiga);
 
                     if(equipe_inimiga.get_inimigo(0)->get_vida() <= 0){
+                        std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 1 && (equipe_inimiga.get_inimigo(0)->get_vida() <= 0 || equipe_inimiga.get_inimigo(1)->get_vida() <= 0)){
+                        if(equipe_inimiga.get_inimigo(0)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(1)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 2 && (equipe_inimiga.get_inimigo(0)->get_vida() <= 0 || equipe_inimiga.get_inimigo(1)->get_vida() <= 0 || equipe_inimiga.get_inimigo(2)->get_vida() <= 0)){
+                        if(equipe_inimiga.get_inimigo(0)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
+                        else if(equipe_inimiga.get_inimigo(1)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(1)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(2)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 3 && equipe_inimiga.get_inimigo(3)->get_vida() <= 0){
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(3)->get_nome() << " morreu!" << std::endl;
                         j = 0;
                     }
                     equipe_inimiga.IfInimigo_morrer();
@@ -1109,15 +865,27 @@ void Jogo::batalha(EquipeInimiga &equipe_inimiga){
                     int alvo0 = rand() % tamanho;
                     ataque_inimigo(equipe_inimiga,j,alvo0);
                     if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0){
+                        std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 1 && (_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)){
+                        if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << _equipe_jogador.get_personagem(1)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 2 && (_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(2)->get_vida_batalha() <= 0)){
+                        if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
+                        else if(_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(1)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << _equipe_jogador.get_personagem(2)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 3 && _equipe_jogador.get_personagem(3)->get_vida_batalha() <= 0){
+                        std::cout << std::endl << _equipe_jogador.get_personagem(3)->get_nome() << " morreu!" << std::endl;
                         i = 0;
                     }
                     _equipe_jogador.IfPersonagem_morrer();
@@ -1147,22 +915,33 @@ void Jogo::batalha(EquipeInimiga &equipe_inimiga){
                     int alvo0 = rand() % tamanho;
                     ataque_inimigo(equipe_inimiga,j,alvo0);
                     if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0){
+                        std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 1 && (_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)){
+                        if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << _equipe_jogador.get_personagem(1)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 2 && (_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0 || _equipe_jogador.get_personagem(2)->get_vida_batalha() <= 0)){
+                        if(_equipe_jogador.get_personagem(0)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(0)->get_nome() << " morreu!" << std::endl;
+                        else if(_equipe_jogador.get_personagem(1)->get_vida_batalha() <= 0)
+                            std::cout << std::endl << _equipe_jogador.get_personagem(1)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << _equipe_jogador.get_personagem(2)->get_nome() << " morreu!" << std::endl;
                         i--;
                     }
                     else if(i == 3 && _equipe_jogador.get_personagem(3)->get_vida_batalha() <= 0){
+                        std::cout << std::endl << _equipe_jogador.get_personagem(3)->get_nome() << " morreu!" << std::endl;
                         i = 0;
                     }
                     _equipe_jogador.IfPersonagem_morrer();
 
                     if(_equipe_jogador.get_tamanho_equipe()==0)
                         break;
-
 
                     tamanho = _equipe_jogador.get_tamanho_equipe();
                     informacoes_jogador();
@@ -1171,26 +950,34 @@ void Jogo::batalha(EquipeInimiga &equipe_inimiga){
                     acao(i,equipe_inimiga);
 
                     if(equipe_inimiga.get_inimigo(0)->get_vida() <= 0){
+                        std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 1 && (equipe_inimiga.get_inimigo(0)->get_vida() <= 0 || equipe_inimiga.get_inimigo(1)->get_vida() <= 0)){
+                        if(equipe_inimiga.get_inimigo(0)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(1)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 2 && (equipe_inimiga.get_inimigo(0)->get_vida() <= 0 || equipe_inimiga.get_inimigo(1)->get_vida() <= 0 || equipe_inimiga.get_inimigo(2)->get_vida() <= 0)){
+                        if(equipe_inimiga.get_inimigo(0)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(0)->get_nome() << " morreu!" << std::endl;
+                        else if(equipe_inimiga.get_inimigo(1)->get_vida()<=0)
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(1)->get_nome() << " morreu!" << std::endl;
+                        else
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(2)->get_nome() << " morreu!" << std::endl;
                         j--;
                     }
                     else if(j == 3 && equipe_inimiga.get_inimigo(3)->get_vida() <= 0){
+                            std::cout << std::endl << equipe_inimiga.get_inimigo(3)->get_nome() << " morreu!" << std::endl;
                         j = 0;
                     }
                     equipe_inimiga.IfInimigo_morrer();
 
-                    if(equipe_inimiga.get_tamanho_equipe_inimiga()==0)
-                        break;
 
                     if(equipe_inimiga.get_tamanho_equipe_inimiga()==0)
                         break;
-
-
 
                     //FIM
                     i++;
