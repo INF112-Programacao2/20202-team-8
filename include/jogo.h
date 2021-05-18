@@ -28,7 +28,12 @@ private:
     EquipeInimiga _equipe_torre1,_equipe_torre2,_equipe_torre3,_equipe_torre4,_equipe_torre5;
 
     // METODOS PRIVADOS PARA COMPACTAR O CODIGO
+    // METODO INICIAR
     void trata_excecao_classe(int& p, int aux);
+    void texto_inicial();
+
+    // METODO PRE_BATALHA
+    void trata_excecao_modificador(int&op);
     int ordena_batalha(EquipeInimiga &equipe_torre);
     void acao(int numero,EquipeInimiga &equipe_torre);
     void informacoes_jogador();

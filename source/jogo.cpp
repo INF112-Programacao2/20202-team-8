@@ -24,6 +24,32 @@
 #include <stdlib.h>
 #include <time.h>
 
+void Jogo::texto_inicial(){
+    std::cout << std::endl << "BEM VINDO A TEXT RPG " << std::endl << "Nesse jogo voce ira escolher uma equipe de 4 personagens para desbravar uma torre." << std::endl;
+    std::cout << "CASO QUEIRA PARAR DE JOGAR, DIGITE 'exit' (NAO FUNCIONA DURANTE A ESCOLHA DO NOME DO PERSONAGEM)" << std::endl;
+    std::cout << std::endl << "********************************************************************************************************************************";
+    std::cout << std::endl << "* 1 - Arqueiro                   2 - Barbaro                    3 - Bardo                      4 - Guerreiro                   *";
+    std::cout << std::endl << "* Ataque Base: 7.0               Ataque Base: 12.0              Ataque Base: 2.0               Ataque Base 10.0                *";
+    std::cout << std::endl << "* Defesa Base: 5.0               Defesa Base: 7.0               Defesa Base: 3.0               Defesa Base 7.0                 *";
+    std::cout << std::endl << "* Vida Base: 20.0                Vida Base: 36.0                Vida Base: 24.0                Vida Base 30.0                  *";
+    std::cout << std::endl << "* Mana Base: 8.0                 Mana Base: 4.0                 Mana Base: 10.0                Mana Base 5.0                   *";
+    std::cout << std::endl << "* Dano Magico Base: 3.0          Dano Magico Base: 0.0          Dano Magico Base: 5.0          Dano Magico Base 4.0            *";
+    std::cout << std::endl << "* Acerto Base: 0.0               Acerto Base: 0.0               Acerto Base: 0.0               Acerto Base 0.0                 *";
+    std::cout << std::endl << "* Velocidade Base: 6.0           Velocidade Base: 4.0           Velocidade Base: 4.0           Velocidade Base 5.0             *";
+    std::cout << std::endl << "*                                                                                                                              *";
+    std::cout << std::endl << "*                                                                                                                              *";
+    std::cout << std::endl << "* 5 - Ladino                     6 - Mago                        7 - Paladino                   8 - Sacerdote                  *";
+    std::cout << std::endl << "* Ataque Base: 6.0               Ataque Base: 3.0                Ataque Base: 8.0               Ataque Base 3.0                *";
+    std::cout << std::endl << "* Defesa Base: 5.0               Defesa Base: 2.0                Defesa Base: 9.0               Defesa Base 4.0                *";
+    std::cout << std::endl << "* Vida Base: 24.0                Vida Base: 18.0                 Vida Base: 30.0                Vida Base 24.0                 *";
+    std::cout << std::endl << "* Mana Base: 8.0                 Mana Base: 12.0                 Mana Base: 7.0                 Mana Base 10.0                 *";
+    std::cout << std::endl << "* Dano Magico Base: 3.0          Dano Magico Base: 10.0          Dano Magico Base: 4.0          Dano Magico Base 5.0           *";
+    std::cout << std::endl << "* Acerto Base: 0.0               Acerto Base: 0.0                Acerto Base: 0.0               Acerto Base 0.0                *";
+    std::cout << std::endl << "* Velocidade Base: 6.0           Velocidade Base: 3.0            Velocidade Base: 5.0           Velocidade Base 2.0            *";
+    std::cout << std::endl << "********************************************************************************************************************************";
+    std::cout << std::endl << std::endl << "Digite os nomes das classes ou os seus numeros para selecionar os personagens que voce ira usar.";
+}
+
 void Jogo::trata_excecao_classe(int &p,int aux){
     char p0[20];
     std::string teste;
@@ -111,6 +137,78 @@ void Jogo::trata_excecao_classe(int &p,int aux){
         }
     }while(p < 1 || p > 8);
 
+}
+
+void Jogo::trata_excecao_modificador(int&op){
+    std::string teste;
+    char ponto[20];
+
+    do
+    {
+    std::cout<<"Digite a destinaçao do ponto: ";
+    std::cin>>ponto;
+    teste = ponto;
+
+    for(int i=0; ponto[i] != '\0'; i++)
+    {
+        if(teste == "exit")
+        {
+            std::cout<<"Obrigado por jogar :) !!"<<std::endl;
+            exit(0);
+        }
+
+        if(teste == "Forca" || teste == "forca"){
+            op = 1;
+            break;
+        }
+        else if(teste == "Destreza" || teste == "destreza"){
+            op = 2;
+            break;
+        }
+        else if(teste == "Constituicao" || teste == "constituicao"){
+            op = 3;
+            break;
+        }
+        else if(teste == "Inteligencia" || teste == "inteligencia"){
+            op = 4;
+            break;
+        }
+
+        else if(ponto[i] >= 'a' && ponto[i] <= 'z' || ponto[i] >= 'A' && ponto[i] <= 'Z')
+        {
+            try
+            {
+                //Erro de digitar letra
+                throw (ExcecaoRPG());
+            }
+
+            catch (ExcecaoRPG A)
+            {
+                A.atributo_texto();
+                break;
+            }
+        }
+        else if(ponto[i+1] == '\0')
+            {
+                op = atoi(ponto);
+
+                if(op < 1 || op > 4)
+                {
+                    try
+                    {
+                        //Erro de digitar letra
+                        throw (ExcecaoRPG());
+                    }
+
+                    catch (ExcecaoRPG AN)
+                    {
+                        AN.atributo_numero();
+                        break;
+                    }
+                }
+            }
+    }
+    }while(op < 1 || op > 4);
 }
 
 void Jogo::informacoes_jogador(){
@@ -571,23 +669,23 @@ Jogo::Jogo(){
     this->_equipe_torre2 = equipe_torre2;
 
     //3 andar da torre
-    Troll troll3_1(6),troll3_2(6),troll3_3(6),troll3_4(6);
+    Troll troll3_1(4),troll3_2(4),troll3_3(4),troll3_4(6);
     EquipeInimiga equipe_torre3(troll3_1,troll3_2,troll3_3,troll3_4);
     this->_equipe_torre3 = equipe_torre3;
 
 
     //4 andar da torre
-    Slime slime4_1(9);
-    Skull skull4_1(9);
-    Troll troll4_1(9);
-    Witcher witcher4_1(9);
+    Slime slime4_1(7);
+    Skull skull4_1(6);
+    Troll troll4_1(6);
+    Witcher witcher4_1(7);
     EquipeInimiga equipe_torre4(slime4_1,skull4_1,troll4_1,witcher4_1);
     this->_equipe_torre4 = equipe_torre4;
 
     //5 andar da torre
-    Skull skull5_1(10);
-    Troll troll5_1(10),troll10_2(10);
-    Witcher witcher5_1(10);
+    Skull skull5_1(8);
+    Troll troll5_1(8),troll10_2(8);
+    Witcher witcher5_1(8);
     EquipeInimiga equipe_torre5(skull5_1,troll5_1,troll5_1,witcher5_1);
     this->_equipe_torre5 = equipe_torre5;
 }
@@ -601,34 +699,7 @@ void Jogo::iniciar(){
     int p1,p2,p3,p4; //classes dos personagens
     std::string n1,n2,n3,n4; //nomes dos personagens
 
-    std::cout << std::endl << "BEM VINDO A TEXT RPG " << std::endl << "Nesse jogo voce ira escolher uma equipe de 4 personagens para desbravar uma torre.";
-    std::cout << std::endl;
-
-    std::cout << "CASO QUEIRA PARAR DE JOGAR, DIGITE 'exit' (NAO FUNCIONA DURANTE A ESCOLHA DO NOME DO PERSONAGEM)" << std::endl;
-
-    std::cout << std::endl << "********************************************************************************************************************************";
-    std::cout << std::endl << "* 1 - Arqueiro                   2 - Barbaro                    3 - Bardo                      4 - Guerreiro                   *";
-    std::cout << std::endl << "* Ataque Base: 7.0               Ataque Base: 12.0              Ataque Base: 2.0               Ataque Base 10.0                *";
-    std::cout << std::endl << "* Defesa Base: 5.0               Defesa Base: 7.0               Defesa Base: 3.0               Defesa Base 7.0                 *";
-    std::cout << std::endl << "* Vida Base: 20.0                Vida Base: 36.0                Vida Base: 24.0                Vida Base 30.0                  *";
-    std::cout << std::endl << "* Mana Base: 8.0                 Mana Base: 4.0                 Mana Base: 10.0                Mana Base 5.0                   *";
-    std::cout << std::endl << "* Dano Magico Base: 3.0          Dano Magico Base: 0.0          Dano Magico Base: 5.0          Dano Magico Base 4.0            *";
-    std::cout << std::endl << "* Acerto Base: 0.0               Acerto Base: 0.0               Acerto Base: 0.0               Acerto Base 0.0                 *";
-    std::cout << std::endl << "* Velocidade Base: 6.0           Velocidade Base: 4.0           Velocidade Base: 4.0           Velocidade Base 5.0             *";
-    std::cout << std::endl << "*                                                                                                                              *";
-    std::cout << std::endl << "*                                                                                                                              *";
-    std::cout << std::endl << "* 5 - Ladino                     6 - Mago                        7 - Paladino                   8 - Sacerdote                  *";
-    std::cout << std::endl << "* Ataque Base: 6.0               Ataque Base: 3.0                Ataque Base: 8.0               Ataque Base 3.0                *";
-    std::cout << std::endl << "* Defesa Base: 5.0               Defesa Base: 2.0                Defesa Base: 9.0               Defesa Base 4.0                *";
-    std::cout << std::endl << "* Vida Base: 24.0                Vida Base: 18.0                 Vida Base: 30.0                Vida Base 24.0                 *";
-    std::cout << std::endl << "* Mana Base: 8.0                 Mana Base: 12.0                 Mana Base: 7.0                 Mana Base 10.0                 *";
-    std::cout << std::endl << "* Dano Magico Base: 3.0          Dano Magico Base: 10.0          Dano Magico Base: 4.0          Dano Magico Base 5.0           *";
-    std::cout << std::endl << "* Acerto Base: 0.0               Acerto Base: 0.0                Acerto Base: 0.0               Acerto Base 0.0                *";
-    std::cout << std::endl << "* Velocidade Base: 6.0           Velocidade Base: 3.0            Velocidade Base: 5.0           Velocidade Base 2.0            *";
-    std::cout << std::endl << "********************************************************************************************************************************";
-    std::cout << std::endl;
-
-    std::cout << std::endl << "Digite os nomes das classes ou os seus numeros para selecionar os personagens que voce ira usar.";
+    texto_inicial();
 
     // PERSONAGEM 1
     trata_excecao_classe(p1,1);
@@ -680,74 +751,7 @@ void Jogo::pre_batalha(){
         std::cout<<"-----------------------------------------------------------------------"<<std::endl;
 
         for(int j=0; j<3; j++){
-
-            do
-            {
-            std::cout<<"Digite a destinaçao do ponto: ";
-            std::cin>>ponto;
-            teste = ponto;
-
-            for(int i=0; ponto[i] != '\0'; i++)
-            {
-                if(teste == "exit")
-                {
-                    std::cout<<"Obrigado por jogar :) !!"<<std::endl;
-                    exit(0);
-                }
-
-                if(teste == "Forca" || teste == "forca"){
-                    op = 1;
-                    break;
-                }
-                else if(teste == "Destreza" || teste == "destreza"){
-                    op = 2;
-                    break;
-                }
-                else if(teste == "Constituicao" || teste == "constituicao"){
-                    op = 3;
-                    break;
-                }
-                else if(teste == "Inteligencia" || teste == "inteligencia"){
-                    op = 4;
-                    break;
-                }
-
-                else if(ponto[i] >= 'a' && ponto[i] <= 'z' || ponto[i] >= 'A' && ponto[i] <= 'Z')
-                {
-                    try
-                    {
-                        //Erro de digitar letra
-                        throw (ExcecaoRPG());
-                    }
-
-                    catch (ExcecaoRPG A)
-                    {
-                        A.atributo_texto();
-                        break;
-                    }
-                }
-                else if(ponto[i+1] == '\0')
-                    {
-                        op = atoi(ponto);
-
-                        if(op < 1 || op > 4)
-                        {
-                            try
-                            {
-                                //Erro de digitar letra
-                                throw (ExcecaoRPG());
-                            }
-
-                            catch (ExcecaoRPG AN)
-                            {
-                                AN.atributo_numero();
-                                break;
-                            }
-                        }
-                    }
-            }
-            }while(op < 1 || op > 4);
-
+            trata_excecao_modificador(op);
 
             //ADICIONANDO OS NOVOS MODIFICADORES
             switch (op){
