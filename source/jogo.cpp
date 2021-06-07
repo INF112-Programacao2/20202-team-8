@@ -211,6 +211,64 @@ void Jogo::trata_excecao_modificador(int&op){
     }while(op < 1 || op > 4);
 }
 
+void Jogo::redefine_valores(int op, int i){
+    int nova_forca,nova_destreza,nova_constituicao,nova_inteligencia;
+    double novo_ataque, nova_vida, nova_mana, novo_dano_magico, novo_acerto, nova_velocidade;
+
+    //ADICIONANDO OS NOVOS MODIFICADORES
+    switch (op){
+    case 1:
+        nova_forca=_equipe_jogador.get_personagem(i)->get_forca()+1;
+        _equipe_jogador.get_personagem(i)->set_forca(nova_forca);
+        std::cout<<"**  1 PONTO DE FORCA FOI ADICIONADO!  **"<<std::endl;
+        std::cout<<std::endl;
+        break;
+    case 2:
+        nova_destreza=_equipe_jogador.get_personagem(i)->get_destreza()+1;
+        _equipe_jogador.get_personagem(i)->set_destreza(nova_destreza);
+        std::cout<<"**  1 PONTO DE DESTREZA FOI ADICIONADO!  **"<<std::endl;
+        std::cout<<std::endl;
+        break;
+    case 3:
+        nova_constituicao=_equipe_jogador.get_personagem(i)->get_constituicao()+1;
+        _equipe_jogador.get_personagem(i)->set_constituicao(nova_constituicao);
+        std::cout<<"**  1 PONTO DE CONSTITUICAO FOI ADICIONADO!  **"<<std::endl;
+        std::cout<<std::endl;
+        break;
+    case 4:
+        nova_inteligencia=_equipe_jogador.get_personagem(i)->get_inteligencia()+1;
+        _equipe_jogador.get_personagem(i)->set_inteligencia(nova_inteligencia);
+        std::cout<<"**  1 PONTO DE INTELIGENCIA FOI ADICIONADO!  **"<<std::endl;
+        std::cout<<std::endl;
+        break;
+    default:
+        break;
+    }
+
+    //REDEFININDO OS NOVOS VALORES DOS STATS
+    novo_ataque= _equipe_jogador.get_personagem(i)->get_ataque_base() + _equipe_jogador.get_personagem(i)->get_forca();
+    nova_vida= _equipe_jogador.get_personagem(i)->get_vida_base() + _equipe_jogador.get_personagem(i)->get_constituicao();
+    nova_mana= _equipe_jogador.get_personagem(i)->get_mana_base() + 2*_equipe_jogador.get_personagem(i)->get_inteligencia();
+    novo_dano_magico= _equipe_jogador.get_personagem(i)->get_dano_magico_base() + _equipe_jogador.get_personagem(i)->get_inteligencia();
+    novo_acerto= _equipe_jogador.get_personagem(i)->get_acerto_base() + _equipe_jogador.get_personagem(i)->get_destreza();
+    nova_velocidade= _equipe_jogador.get_personagem(i)->get_velocidade_base() + _equipe_jogador.get_personagem(i)->get_destreza();
+
+    _equipe_jogador.get_personagem(i)->set_ataque(novo_ataque);
+    _equipe_jogador.get_personagem(i)->set_vida(nova_vida);
+    _equipe_jogador.get_personagem(i)->set_mana(nova_mana);
+    _equipe_jogador.get_personagem(i)->set_dano_magico(novo_dano_magico);
+    _equipe_jogador.get_personagem(i)->set_acerto(novo_acerto);
+    _equipe_jogador.get_personagem(i)->set_velocidade(nova_velocidade);
+
+    //REINICIANDO OS VALORES DOS STATS DE BATALHA
+    _equipe_jogador.get_personagem(i)->set_ataque_batalha(novo_ataque);
+    _equipe_jogador.get_personagem(i)->set_vida_batalha(nova_vida);
+    _equipe_jogador.get_personagem(i)->set_mana_batalha(nova_mana);
+    _equipe_jogador.get_personagem(i)->set_dano_magico_batalha(novo_dano_magico);
+    _equipe_jogador.get_personagem(i)->set_acerto_batalha(novo_acerto);
+    _equipe_jogador.get_personagem(i)->set_velocidade_batalha(nova_velocidade);
+}
+
 void Jogo::informacoes_jogador(){
     std::cout<<std::endl;
     std::cout<<"--------------------------------------------INFORMACOES--------------------------------------------"<<std::endl;
@@ -734,10 +792,7 @@ void Jogo::iniciar(){
 
 void Jogo::pre_batalha(){
 
-    int op,nova_forca,nova_destreza,nova_constituicao,nova_inteligencia;
-    double novo_ataque, nova_vida, nova_mana, novo_dano_magico, novo_acerto, nova_velocidade;
-    string teste;
-    char ponto[20];
+    int op;
 
     for(int i=0; i<_equipe_jogador.get_tamanho_equipe();i++){
 
@@ -752,62 +807,7 @@ void Jogo::pre_batalha(){
 
         for(int j=0; j<3; j++){
             trata_excecao_modificador(op);
-
-            //ADICIONANDO OS NOVOS MODIFICADORES
-            switch (op){
-            case 1:
-                nova_forca=_equipe_jogador.get_personagem(i)->get_forca()+1;
-                _equipe_jogador.get_personagem(i)->set_forca(nova_forca);
-                std::cout<<"**  1 PONTO DE FORCA FOI ADICIONADO!  **"<<std::endl;
-                std::cout<<std::endl;
-                break;
-            case 2:
-                nova_destreza=_equipe_jogador.get_personagem(i)->get_destreza()+1;
-                _equipe_jogador.get_personagem(i)->set_destreza(nova_destreza);
-                std::cout<<"**  1 PONTO DE DESTREZA FOI ADICIONADO!  **"<<std::endl;
-                std::cout<<std::endl;
-                break;
-            case 3:
-                nova_constituicao=_equipe_jogador.get_personagem(i)->get_constituicao()+1;
-                _equipe_jogador.get_personagem(i)->set_constituicao(nova_constituicao);
-                std::cout<<"**  1 PONTO DE CONSTITUICAO FOI ADICIONADO!  **"<<std::endl;
-                std::cout<<std::endl;
-                break;
-            case 4:
-                nova_inteligencia=_equipe_jogador.get_personagem(i)->get_inteligencia()+1;
-                _equipe_jogador.get_personagem(i)->set_inteligencia(nova_inteligencia);
-                std::cout<<"**  1 PONTO DE INTELIGENCIA FOI ADICIONADO!  **"<<std::endl;
-                std::cout<<std::endl;
-                break;
-            default:
-                break;
-            }
-
-            //REDEFININDO OS NOVOS VALORES DOS STATS
-            novo_ataque= _equipe_jogador.get_personagem(i)->get_ataque_base() + _equipe_jogador.get_personagem(i)->get_forca();
-            nova_vida= _equipe_jogador.get_personagem(i)->get_vida_base() + _equipe_jogador.get_personagem(i)->get_constituicao();
-            nova_mana= _equipe_jogador.get_personagem(i)->get_mana_base() + 2*_equipe_jogador.get_personagem(i)->get_inteligencia();
-            novo_dano_magico= _equipe_jogador.get_personagem(i)->get_dano_magico_base() + _equipe_jogador.get_personagem(i)->get_inteligencia();
-            novo_acerto= _equipe_jogador.get_personagem(i)->get_acerto_base() + _equipe_jogador.get_personagem(i)->get_destreza();
-            nova_velocidade= _equipe_jogador.get_personagem(i)->get_velocidade_base() + _equipe_jogador.get_personagem(i)->get_destreza();
-
-            _equipe_jogador.get_personagem(i)->set_ataque(novo_ataque);
-            _equipe_jogador.get_personagem(i)->set_vida(nova_vida);
-            _equipe_jogador.get_personagem(i)->set_mana(nova_mana);
-            _equipe_jogador.get_personagem(i)->set_dano_magico(novo_dano_magico);
-            _equipe_jogador.get_personagem(i)->set_acerto(novo_acerto);
-            _equipe_jogador.get_personagem(i)->set_velocidade(nova_velocidade);
-
-            //REINICIANDO OS VALORES DOS STATS DE BATALHA
-            _equipe_jogador.get_personagem(i)->set_ataque_batalha(novo_ataque);
-            _equipe_jogador.get_personagem(i)->set_vida_batalha(nova_vida);
-            _equipe_jogador.get_personagem(i)->set_mana_batalha(nova_mana);
-            _equipe_jogador.get_personagem(i)->set_dano_magico_batalha(novo_dano_magico);
-            _equipe_jogador.get_personagem(i)->set_acerto_batalha(novo_acerto);
-            _equipe_jogador.get_personagem(i)->set_velocidade_batalha(nova_velocidade);
-
-
-
+            redefine_valores(op,i);
         }
     }
 
@@ -1062,57 +1062,49 @@ void Jogo::ataque_inimigo(EquipeInimiga &equipe_torre, int posicao_inimigo, int 
 }
 
 void Jogo::ciclo(){
-
     iniciar();
 
-    //1 ANDAR
+    // 1 ANDAR
     pre_batalha();
     batalha(_equipe_torre1);
     if(_equipe_jogador.get_tamanho_equipe()==0){
+        std::cout<<"PERDEU"<<std::endl;
         return;
     }
+    std::cout<<"           *****VITORIA!!*****"<<std::endl<<std::endl;
+    std::cout<<" SEUS HEROIS SOBEM PARA O 2º ANDAR DA TORRE !!"<<std::endl;
 
-    //2 ANDAR
-    std::cout<<"           *****VITORIA!!*****"<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<" SEUS HEROIS SOBEM PARA O 2º ANDAR DA TORRE !! "<<std::endl;
+    // 2 ANDAR
     pre_batalha();
     batalha(_equipe_torre2);
     if(_equipe_jogador.get_tamanho_equipe()==0){
         std::cout<<"PERDEU"<<std::endl;
         return;
     }
+    std::cout<<"           *****VITORIA!!*****"<<std::endl<<std::endl;
+    std::cout<<" SEUS HEROIS SOBEM PARA O 3º ANDAR DA TORRE !!"<<std::endl;
 
-    //3 ANDAR
-    std::cout<<"           *****VITORIA!!*****"<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<" SEUS HEROIS SOBEM PARA O 3º ANDAR DA TORRE !! "<<std::endl;
+    // 3 ANDAR
     pre_batalha();
     batalha(_equipe_torre3);
     if(_equipe_jogador.get_tamanho_equipe()==0){
         std::cout<<"PERDEU"<<std::endl;
         return;
     }
+    std::cout<<"           *****VITORIA!!*****"<<std::endl<<std::endl;
+    std::cout<<" SEUS HEROIS SOBEM PARA O 4º ANDAR DA TORRE !!"<<std::endl;
 
-    //4 ANDAR
-    std::cout<<"           *****VITORIA!!*****"<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<" SEUS HEROIS SOBEM PARA O 4º ANDAR DA TORRE !! "<<std::endl;
+    // 4 ANDAR
     pre_batalha();
     batalha(_equipe_torre4);
     if(_equipe_jogador.get_tamanho_equipe()==0){
         std::cout<<"PERDEU"<<std::endl;
         return;
     }
+    std::cout<<"           *****VITORIA!!*****"<<std::endl<<std::endl;
+    std::cout<<" SEUS HEROIS SOBEM PARA O 5º ANDAR DA TORRE !!"<<std::endl;
 
-    //5 ANDAR
-    std::cout<<"           *****VITORIA!!*****"<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    std::cout<<" SEUS HEROIS SOBEM PARA O 5º ANDAR DA TORRE !! "<<std::endl;
+    // 5 ANDAR
     pre_batalha();
     batalha(_equipe_torre5);
     if(_equipe_jogador.get_tamanho_equipe()==0){
@@ -1120,6 +1112,7 @@ void Jogo::ciclo(){
         return;
     }
 
+    // VITORIA
     std::cout<<"VOCE GANHOU"<<std::endl;
 
     return;
